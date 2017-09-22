@@ -55,10 +55,10 @@ public class Usuario extends AbstractEntity {
 	@OneToOne(mappedBy = "usuario", fetch = FetchType.EAGER, cascade = CascadeType.ALL)
 	private Sobre sobre;
 	
-	@Column(name = "data_atualizacao", nullable = false)
+	@Column(name = "data_atualizacao", nullable = true)
 	private Date dataAtualizacao;
 
-	@Column(name = "data_criacao", nullable = false)
+	@Column(name = "data_criacao", nullable = true)
 	private Date dataCriacao;
 
 	@PreUpdate

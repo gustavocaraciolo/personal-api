@@ -22,7 +22,7 @@ import lombok.ToString;
 @Setter
 @ToString
 @Entity
-@Table(name = "habilidade")
+@Table(name = "habilidades")
 public class Habilidades extends AbstractEntity {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
