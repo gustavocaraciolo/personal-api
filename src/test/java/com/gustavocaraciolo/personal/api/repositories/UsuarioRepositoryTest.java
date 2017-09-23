@@ -25,18 +25,18 @@ public class UsuarioRepositoryTest {
 	@Autowired
 	private UsuarioRepository usuarioRepository;
 	private static final Logger log = LoggerFactory.getLogger(UsuarioRepositoryTest.class);
-	private static final String EMAIL = "teste@teste.com";
+	private static final String EMAIL = "gustavocaraciolo@gmail.com";
 
 	@Before
 	public void setUp() {
-		try{
-		Usuario usuario = new Usuario();
-		usuario.setNome("Teste man");
-		usuario.setEmail("teste@teste.com");
-		usuario.setSenha(PasswordUtils.gerarBCrypt("123456"));
-		usuario.setPerfil(PerfilEnum.ROLE_USUARIO);
-		this.usuarioRepository.save(usuario);
-		}catch(Exception e){
+		try {
+			Usuario usuario = new Usuario();
+			usuario.setNome("Gustavo Caraciolo");
+			usuario.setEmail("gustavocaraciolo@gmail.com");
+			usuario.setSenha(PasswordUtils.gerarBCrypt("123456"));
+			usuario.setPerfil(PerfilEnum.ROLE_ADMIN);
+			this.usuarioRepository.save(usuario);
+		} catch (Exception e) {
 			log.error(e.getMessage());
 		}
 	}

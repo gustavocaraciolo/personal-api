@@ -5,6 +5,8 @@ import java.util.Optional;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.annotation.CachePut;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 
 import com.gustavocaraciolo.personal.api.entities.Usuario;
@@ -19,13 +21,13 @@ public class UsuarioServiceImpl implements UsuarioService {
 	@Autowired
 	private UsuarioRepository usuarioRepository;
 
-	@Override
+	@Cacheable("usuarioPorEmail")
 	public Optional<Usuario> buscarPorEmail(String email) {
 		log.info("Buscando um usuario com email {}", email);
 		return Optional.ofNullable(usuarioRepository.findByEmail(email));
 	}
 
-	@Override
+	@CachePut("usuarioPorEmail")
 	public Usuario persistir(Usuario usuario) {
 		log.info("Buscando usuario {}", usuario);
 		return this.usuarioRepository.save(usuario);
